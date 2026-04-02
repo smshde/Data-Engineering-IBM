@@ -1,4 +1,3 @@
 # Description 
 
-Each tasks' solutions are included as snapshot as per IBM Assignment instructions <br>
-MongoDB for the NoSQL database to hold the catalog data <br>
+Designing a data platform using  MongoDB NoSQL database to store an e-commerce catalog data.<br>

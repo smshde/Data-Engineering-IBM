@@ -29,7 +29,7 @@ Built an end-to-end data engineering platform for a fictional e-commerce retaile
 | M5 — ETL Pipelines | Python ETL automating MySQL→Db2 sync; Airflow DAG for web log pipeline | Python, Pandas, Apache Airflow |
 | M6 — Big Data ML | PySpark + SparkML Linear Regression on search-term data; sales forecast output | Apache Spark, PySpark, SparkML |
 
-→ **[Full capstone documentation with architecture diagrams](./Course-13-%20DE%20Capstone%20Project/README.md)**
+→ **[Full capstone documentation with architecture diagrams](https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/readme.md)**
 
 ---
 
@@ -92,4 +92,4 @@ DevOps        Git · GitHub · Jupyter Notebooks · Linux
 
 
 *→ For the capstone architecture, module-by-module breakdown, and diagrams: [Course-13 README](
-https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/README.md)*
+https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/readme.md)*

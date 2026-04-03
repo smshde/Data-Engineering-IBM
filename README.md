@@ -91,5 +91,5 @@ DevOps        Git · GitHub · Jupyter Notebooks · Linux
 13-course program · Capstone verified · ![image](https://github.com/smitshah1920/IBM-Data-Engineering/assets/116938231/de69d4f0-4b72-49eb-8eef-e8e09b9fa762)
 
 
-*→ For the capstone architecture, module-by-module breakdown, and diagrams: [Course-13 README](./Course-13-%20DE%20Capstone%20Project/README.md)*
-
+*→ For the capstone architecture, module-by-module breakdown, and diagrams: [Course-13 README](
+https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/README.md)*

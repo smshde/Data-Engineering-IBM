@@ -12,44 +12,56 @@ SoftCart, a multi-channel electronics retailer, operates two source systems — 
 **The engineering challenge:** design and build a complete data platform — from raw transactional storage through warehouse, BI dashboard, automated ETL, and predictive analytics — that eliminates this blind spot and makes data accessible to decision-makers in real time.
 
 ## Platform Architecture
-┌─────────────────────────────────────────────────────────────────────────┐
-│                     SOFTCART DATA PLATFORM                              │
-│                                                                         │
-│  ┌──────────────┐    ┌──────────────┐                                   │
-│  │  MySQL OLTP  │    │   MongoDB    │  ← Source Systems                 │
-│  │ (Sales/Inv.) │    │  (Catalog)   │                                   │
-│  └──────┬───────┘    └──────┬───────┘                                   │
-│         │                   │                                           │
-│         └─────────┬─────────┘                                           │
-│                   │  ETL (Python + Airflow)                             │
-│                   ▼                                                     │
-│  ┌────────────────────────────────┐                                     │
-│  │   PostgreSQL Staging DW        │  ← Star Schema                      │
-│  │   (DimDate · DimCategory ·     │     (Kimball)                       │
-│  │    DimItem · DimCountry ·      │                                     │
-│  │    FactSales)                  │                                     │
-│  └──────────────┬─────────────────┘                                     │
-│                 │  Load                                                 │
-│                 ▼                                                       │
-│  ┌────────────────────────────────┐    ┌────────────────────────┐       │
-│  │    IBM Db2 Production DW       │───▶│  IBM Cognos Analytics  │       │
-│  │    (Cloud Instance)            │    │  (BI Dashboard)        │       │
-│  └────────────────────────────────┘    └────────────────────────┘       │
-│                                                                         │
-│  ┌─────────────────────────────────────────────────────┐                │
-│  │   Hadoop Cluster (Big Data Layer)                   │                │
-│  │   Apache Spark + SparkML → Sales Forecasting Model  │                │
-│  └─────────────────────────────────────────────────────┘                │
-└─────────────────────────────────────────────────────────────────────────┘
+```
+       SOFTCART DATA PLATFORM
+       =======================
+
+  [SOURCE SYSTEMS]
+
+  ┌─────────────┐    ┌─────────────┐
+  │ MySQL OLTP  │    │  MongoDB    │
+  │ Sales & Inv.│    │ Product Cat.│
+  └──────┬──────┘    └──────┬──────┘
+         │                  │
+         └────────┬──────────┘
+                  │
+                  │  Python ETL · Airflow
+                  ▼
+
+  [STAGING WAREHOUSE]
+  ┌────────────────────────────┐
+  │ PostgreSQL  (Kimball Star) │
+  │ DimDate · DimCategory      │
+  │ DimItem · DimCountry       │
+  │ FactSales                  │
+  └──────────────┬─────────────┘
+                 │  Load
+                 ▼
+
+  [PRODUCTION WAREHOUSE]
+  ┌────────────────────────────┐
+  │ IBM Db2  (Cloud Instance)  │
+  └────────┬───────────────────┘
+           │            │
+           ▼            ▼
+
+  [REPORTING]    [BIG DATA / ML]
+  ┌──────────┐  ┌──────────────┐
+  │  Cognos  │  │ Hadoop+Spark │
+  │Analytics │  │ SparkML      │
+  │Dashboard │  │ R² = 0.87    │
+  └──────────┘  └──────────────┘
+```
+
 
 ## Repository Structure
 Course-13- DE Capstone Project/
-├── C13W1-OLTP/                  # (Module 1)MySQL schema, sales_data.sql, export bash script
-├── C13W2-NoSQL/                 # (Module 2)MongoDB import scripts, catalog.json, queries
-├── C13W3-DataWarehouse/         # (Module 3)PostgreSQL DDL, IBM Db2 load scripts, ROLLUP/CUBE queries
-├── C13W4-Reporting/             # (Module 4)Cognos dashboard screenshots, data source config
-├── C13W5-ETL-Pipelines/         # (Module 5)automation.py, airflow_dag.py, web log pipeline
-└── C13W6-BigData-Spark/         # (Module 6)PySpark notebooks, SparkML model, forecast output
+- C13W1-OLTP                : (Module 1)MySQL schema, sales_data.sql, export bash script
+- C13W2-NoSQL               : (Module 2)MongoDB import scripts, catalog.json, queries
+- C13W3-DataWarehouse       : (Module 3)PostgreSQL DDL, IBM Db2 load scripts, ROLLUP/CUBE queries
+- C13W4-Reporting           : (Module 4)Cognos dashboard screenshots, data source config
+- C13W5-ETL-Pipelines       : (Module 5)automation.py, airflow_dag.py, web log pipeline
+- C13W6-BigData-Spark       : (Module 6)PySpark notebooks, SparkML model, forecast output
 
 ## Module Breakdown
 ### Module 1 — OLTP Database Design (MySQL)
@@ -323,17 +335,14 @@ year's revenue.                  Regression → 2023 forecast.
 
 ## Complete Tech Stack
 
-| Layer                  | Technology 
-
-| OLTP (transactional)   | MySQL, SQL, Bash 
-| NoSQL (catalog)        | MongoDB, JSON, mongoimport 
-| Staging warehouse      | PostgreSQL, pgAdmin, Star Schema 
-| Production warehouse   | IBM Db2 (Cloud) 
-| BI & reporting         | IBM Cognos Analytics 
-| ETL orchestration      | Apache Airflow, Python, Pandas 
-| Big data / ML          | Apache Spark, PySpark, SparkML 
-| Dev environment        | Jupyter Notebooks, Linux, Git 
-
+- OLTP (transactional)   : MySQL, SQL, Bash 
+- NoSQL (catalog)        : MongoDB, JSON, mongoimport 
+- Staging warehouse      : PostgreSQL, pgAdmin, Star Schema 
+- Production warehouse   : IBM Db2 (Cloud) 
+- BI & reporting         : IBM Cognos Analytics 
+- ETL orchestration      : Apache Airflow, Python, Pandas 
+- Big data / ML          : Apache Spark, PySpark, SparkML 
+- Dev environment        : Jupyter Notebooks, Linux, Git
 
 ## Key Outcomes
 - Designed and operated **6 distinct data infrastructure components** across a single integrated platform

@@ -1,7 +1,5 @@
-# Description
-[IBM-Data-Engineering Professional Certificate](https://www.coursera.org/professional-certificates/ibm-data-engineer)
+# [IBM-Data-Engineering Professional Certificate](https://www.coursera.org/professional-certificates/ibm-data-engineer)
 
-# IBM Data Engineering Professional Certificate
 ### End-to-End Data Platform Engineering — 13 Courses · 71 Commits · Capstone: Full-Stack Retail Analytics Platform
 
 ---
@@ -29,7 +27,7 @@ Built an end-to-end data engineering platform for a fictional e-commerce retaile
 | M5 — ETL Pipelines | Python ETL automating MySQL→Db2 sync; Airflow DAG for web log pipeline | Python, Pandas, Apache Airflow |
 | M6 — Big Data ML | PySpark + SparkML Linear Regression on search-term data; sales forecast output | Apache Spark, PySpark, SparkML |
 
-→ **[Full capstone documentation with architecture diagrams](https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/readme.md)**
+→ **[Full capstone documentation with architecture diagrams](https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/Readme.md)**
 
 ---
 
@@ -91,5 +89,4 @@ DevOps        Git · GitHub · Jupyter Notebooks · Linux
 13-course program · Capstone verified · ![image](https://github.com/smitshah1920/IBM-Data-Engineering/assets/116938231/de69d4f0-4b72-49eb-8eef-e8e09b9fa762)
 
 
-*→ For the capstone architecture, module-by-module breakdown, and diagrams: [Course-13 README](
-https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/readme.md)*
+*→ For the capstone architecture, module-by-module breakdown, and diagrams: [Course-13 README](https://github.com/smshde/Data-Engineering-IBM/tree/main/Course-13-%20DE%20Capstone%20Project/Readme.md)*
